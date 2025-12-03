@@ -34,6 +34,8 @@ class FinanceTrackerApp:
         self.ui = loader.load(ui_file)
         ui_file.close()
 
+        self.setup_connections()
+
         self.ui.setSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
         self.ui.setFixedSize(self.ui.size())
         self.ui.setMaximumSize(self.ui.size())
@@ -43,6 +45,17 @@ class FinanceTrackerApp:
 
         self.setup_tabs()
     
+    def setup_connections(self):
+        # Connections in Home tab
+        self.ui.logTransactionButton.clicked.connect(self.open_transaction_dialog)
+
+        # Connections in Transactions tab
+        self.ui.updateTransactionButton.clicked.connect(self.open_update_dialog)
+        self.ui.deleteTransactionButton.clicked.connect(self.handle_delete)
+
+        # Connections in Profile tab
+        self.ui.saveSettingsButton.clicked.connect(self.save_settings)
+    
     def setup_tabs(self):
         self.setup_home_tab()
         self.setup_profile_tab()
@@ -50,7 +63,6 @@ class FinanceTrackerApp:
     
     def setup_home_tab(self):
         tabWidget = self.ui.tabWidget
-        logTransactionButton = self.ui.logTransactionButton
         accountBalanceMainDisplay = self.ui.accountBalanceMain
 
         balance = account.get_account_info()["current_balance"]
@@ -59,13 +71,9 @@ class FinanceTrackerApp:
         accountBalanceMainDisplay.setText(accountBalanceString)
 
         tabWidget.tabBar().setCursor(QtCore.Qt.CursorShape.PointingHandCursor)
-        
-        logTransactionButton.clicked.connect(self.open_transaction_dialog)
     
     def setup_transactions_tab(self):
         table = self.ui.transactionsTable
-        updateTransactionButton = self.ui.updateTransactionButton
-        deleteTransactionButton = self.ui.deleteTransactionButton
 
         table.setSelectionMode(QAbstractItemView.SelectionMode.SingleSelection)
         table.setSelectionBehavior(QAbstractItemView.SelectionBehavior.SelectRows)
@@ -83,9 +91,6 @@ class FinanceTrackerApp:
         table.setColumnWidth(5, 120)
 
         table.setColumnHidden(0, True)
-
-        updateTransactionButton.clicked.connect(self.open_update_dialog)
-        deleteTransactionButton.clicked.connect(self.handle_delete)
     
     def setup_profile_tab(self):
         accountNameDisplay = self.ui.accountName
@@ -104,13 +109,10 @@ class FinanceTrackerApp:
 
     def handle_settings(self):
         setCategoriesInput = self.ui.categoriesInput
-        saveSettingsBtn = self.ui.saveSettingsButton
 
         existing_settings = preferences.get_preferences()
 
         setCategoriesInput.setText(",".join(existing_settings["categories"]))
-
-        saveSettingsBtn.clicked.connect(self.save_settings)
     
     def save_settings(self):
         setCategoriesInput = self.ui.categoriesInput
