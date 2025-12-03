@@ -1,4 +1,5 @@
-from PySide6.QtWidgets import QTableWidgetItem
+from PySide6.QtWidgets import QApplication, QTableWidgetItem
+from PySide6.QtGui import QColor, QFont, QFontDatabase
 
 import database, preferences
 
@@ -38,4 +39,15 @@ class Functions:
             "category": category,
             "description": description
         }
+
+    @staticmethod
+    def load_fonts():
+        font_id = QFontDatabase.addApplicationFont("assets/inter-variable-font.ttf")
+        font_family = QFontDatabase.applicationFontFamilies(font_id)
+
+        if font_family:
+            font = QFont(font_family[0], 10)
+            QApplication.setFont(font)
+        else:
+            print("Font could not be loaded.")
         

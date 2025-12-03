@@ -32,7 +32,7 @@
    <cursorShape>ArrowCursor</cursorShape>
   </property>
   <property name="windowTitle">
-   <string>Finance Tracker</string>
+   <string>FinWise</string>
   </property>
   <property name="styleSheet">
    <string notr="true"/>

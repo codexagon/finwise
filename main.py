@@ -17,6 +17,8 @@ class FinanceTrackerApp:
     def __init__(self):
         if not os.path.exists(self.DATA_DIR):
             os.mkdir(self.DATA_DIR)
+
+        Functions.load_fonts()
         
         database.create_tables()
         account.create_account()
@@ -32,12 +34,10 @@ class FinanceTrackerApp:
         self.ui.setFixedSize(self.ui.size())
         self.ui.setMaximumSize(self.ui.size())
         self.ui.setMinimumSize(self.ui.size())
-
-        self.setup_home_tab()
-        self.setup_transactions_tab()
-        self.setup_profile_tab()
         
         Functions.load_transactions(self.ui.transactionsTable)
+
+        self.setup_tabs()
     
     def setup_tabs(self):
         self.setup_home_tab()
