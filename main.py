@@ -21,8 +21,12 @@ class FinanceTrackerApp:
         Functions.load_fonts()
         
         database.create_tables()
-        account.create_account()
-        preferences.set_defaults()
+
+        if not os.path.exists(os.path.join(self.DATA_DIR, "account_data.dat")):
+            account.create_account()
+        
+        if not os.path.exists(os.path.join(self.DATA_DIR, "preferences.dat")):
+            preferences.set_defaults()
 
         loader = QtUiTools.QUiLoader()
         ui_file = QtCore.QFile("ui/main_window.ui")
