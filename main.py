@@ -4,6 +4,7 @@ from PySide6 import QtCore, QtUiTools
 from PySide6.QtWidgets import (QApplication, QHeaderView, QAbstractItemView, QDialog, QMessageBox, QSizePolicy)
 
 import database, account, preferences
+import utils.xp_system as xp
 from utils.functions import Functions
 
 from log_transaction import LogTransactionDialog
@@ -111,7 +112,8 @@ class FinanceTrackerApp:
         QMessageBox.information(None, "Success", "Settings saved successfully.")
     
     def open_transaction_dialog(self):
-        transactionDialog = LogTransactionDialog()
+        count = account.get_account_info()["transaction_count"]
+        transactionDialog = LogTransactionDialog(count)
         transactionDialog.update_categories(preferences.get_preferences()["categories"])
         submitted = transactionDialog.ui.exec()
 
@@ -152,7 +154,7 @@ class FinanceTrackerApp:
                 account.update_account("current_balance", delete_amount)
 
             account.update_account("transaction_count", -1)
-            account.update_account("xp", -5)
+            account.update_account("xp", xp.XP_REWARDS["transaction_deleted"])
             database.delete_transaction(delete_id)
             QMessageBox.information(None, "Success", "Transaction deleted successfully!")
 
