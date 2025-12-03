@@ -4,6 +4,7 @@ from PySide6 import QtCore, QtUiTools
 from PySide6.QtWidgets import (QApplication, QHeaderView, QAbstractItemView, QDialog, QMessageBox, QSizePolicy)
 
 import database, account, preferences
+
 import utils.xp_system as xp
 from utils.functions import Functions
 
@@ -11,13 +12,15 @@ from log_transaction import LogTransactionDialog
 from update_transaction import UpdateTransactionDialog
 
 class FinanceTrackerApp:
+    DATA_DIR = os.path.join(os.path.expanduser("~"), "finwise-data")
+
     def __init__(self):
-        database.create_tables()
-        if not os.path.exists("data/account_data.dat"):
-            account.create_account()
+        if not os.path.exists(self.DATA_DIR):
+            os.mkdir(self.DATA_DIR)
         
-        if not os.path.exists("data/preferences.dat"):
-            preferences.set_defaults()
+        database.create_tables()
+        account.create_account()
+        preferences.set_defaults()
 
         loader = QtUiTools.QUiLoader()
         ui_file = QtCore.QFile("ui/main_window.ui")

@@ -1,7 +1,9 @@
+import os
+
 import sqlite3
 from sqlite3 import Error
 
-DB_FILE = "data/finance_tracker.db"
+DB_FILE = os.path.join(os.path.expanduser("~"), "finwise-data", "transactions.db")
 
 # Database operations
 def create_connection():

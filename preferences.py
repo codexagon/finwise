@@ -1,4 +1,6 @@
-PREFERENCES_FILE = "data/preferences.dat"
+import os
+
+PREFERENCES_FILE = os.path.join(os.path.expanduser("~"), "finwise-data", "preferences.dat")
 PREFERENCES_COUNT = 1
 
 def open_preferences_file(mode):

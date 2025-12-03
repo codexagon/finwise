@@ -1,4 +1,7 @@
-ACCOUNT_FILE = "data/account_data.dat"
+import os
+
+ACCOUNT_FILE = os.path.join(os.path.expanduser("~"), "finwise-data", "account_data.dat")
+
 INFO_COUNT = 4
 
 def open_account_file(mode):
