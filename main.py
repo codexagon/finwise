@@ -109,15 +109,22 @@ class FinanceTrackerApp:
 
     def handle_settings(self):
         setCategoriesInput = self.ui.categoriesInput
+        setAccountNameInput = self.ui.accountNameInput
 
         existing_settings = preferences.get_preferences()
+        information = account.get_account_info()
 
         setCategoriesInput.setText(",".join(existing_settings["categories"]))
+        setAccountNameInput.setText(information["account_name"])
     
     def save_settings(self):
         setCategoriesInput = self.ui.categoriesInput
+        setAccountNameInput = self.ui.accountNameInput
         new_categories = setCategoriesInput.text().strip().split(",")
+        new_account_name = setAccountNameInput.text().strip()
         preferences.update_preferences("categories", new_categories)
+        account.update_account("account_name", new_account_name)
+        self.setup_profile_tab()
         QMessageBox.information(None, "Success", "Settings saved successfully.")
     
     def open_transaction_dialog(self):

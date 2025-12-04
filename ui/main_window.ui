@@ -472,7 +472,7 @@ border-radius: 10px;
           <rect>
            <x>150</x>
            <y>30</y>
-           <width>71</width>
+           <width>201</width>
            <height>21</height>
           </rect>
          </property>
@@ -498,7 +498,7 @@ border-radius: 10px;
           <rect>
            <x>150</x>
            <y>60</y>
-           <width>71</width>
+           <width>131</width>
            <height>21</height>
           </rect>
          </property>
@@ -524,7 +524,7 @@ border-radius: 10px;
           <rect>
            <x>150</x>
            <y>90</y>
-           <width>71</width>
+           <width>91</width>
            <height>21</height>
           </rect>
          </property>
@@ -555,9 +555,9 @@ border-radius: 10px;
         <widget class="QLineEdit" name="categoriesInput">
          <property name="geometry">
           <rect>
-           <x>130</x>
+           <x>150</x>
            <y>40</y>
-           <width>621</width>
+           <width>601</width>
            <height>25</height>
           </rect>
          </property>
@@ -576,6 +576,32 @@ border-radius: 10px;
          </property>
          <property name="text">
           <string>Save Changes</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="accountNameInputLabel">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>80</y>
+           <width>121</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Account Name&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="accountNameInput">
+         <property name="geometry">
+          <rect>
+           <x>150</x>
+           <y>80</y>
+           <width>201</width>
+           <height>25</height>
+          </rect>
+         </property>
+         <property name="placeholderText">
+          <string>Enter name</string>
          </property>
         </widget>
        </widget>
