@@ -197,7 +197,7 @@ padding: 5px 10px;
      <widget class="QPushButton" name="updateTransactionButton">
       <property name="geometry">
        <rect>
-        <x>270</x>
+        <x>30</x>
         <y>10</y>
         <width>131</width>
         <height>26</height>
@@ -210,7 +210,7 @@ padding: 5px 10px;
      <widget class="QPushButton" name="deleteTransactionButton">
       <property name="geometry">
        <rect>
-        <x>410</x>
+        <x>180</x>
         <y>10</y>
         <width>131</width>
         <height>26</height>
@@ -398,6 +398,74 @@ border-radius: 10px;
         </brush>
        </property>
       </column>
+     </widget>
+     <widget class="QLabel" name="sortLabel">
+      <property name="geometry">
+       <rect>
+        <x>480</x>
+        <y>10</y>
+        <width>71</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Sort by:</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="sortByCategoryDropdown">
+      <property name="geometry">
+       <rect>
+        <x>555</x>
+        <y>10</y>
+        <width>91</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>Date</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Name</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Amount</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Type</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Category</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QComboBox" name="sortingOrderDropdown">
+      <property name="geometry">
+       <rect>
+        <x>665</x>
+        <y>10</y>
+        <width>111</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>Descending</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Ascending</string>
+       </property>
+      </item>
      </widget>
     </widget>
     <widget class="QWidget" name="statisticsTab">

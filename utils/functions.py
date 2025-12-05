@@ -5,9 +5,9 @@ import database, preferences
 
 class Functions:
     @staticmethod
-    def load_transactions(table):
+    def load_transactions(table, category, order):
         table.setRowCount(0)
-        transactions = database.get_all_transactions()
+        transactions = database.get_all_transactions(category, order)
 
         for pos, data in enumerate(transactions):
             table.insertRow(pos)

@@ -41,7 +41,9 @@ class FinanceTrackerApp:
         self.ui.setMaximumSize(self.ui.size())
         self.ui.setMinimumSize(self.ui.size())
         
-        Functions.load_transactions(self.ui.transactionsTable)
+        category_sort = self.ui.sortByCategoryDropdown.currentText()
+        sort_order = self.ui.sortingOrderDropdown.currentText()
+        Functions.load_transactions(self.ui.transactionsTable, category_sort, sort_order)
 
         self.setup_tabs()
     
@@ -52,6 +54,9 @@ class FinanceTrackerApp:
         # Connections in Transactions tab
         self.ui.updateTransactionButton.clicked.connect(self.open_update_dialog)
         self.ui.deleteTransactionButton.clicked.connect(self.handle_delete)
+
+        self.ui.sortByCategoryDropdown.currentTextChanged.connect(self.setup_transactions_tab)
+        self.ui.sortingOrderDropdown.currentTextChanged.connect(self.setup_transactions_tab)
 
         # Connections in Profile tab
         self.ui.saveSettingsButton.clicked.connect(self.save_settings)
@@ -91,6 +96,10 @@ class FinanceTrackerApp:
         table.setColumnWidth(5, 120)
 
         table.setColumnHidden(0, True)
+
+        category_sort = self.ui.sortByCategoryDropdown.currentText()
+        sort_order = self.ui.sortingOrderDropdown.currentText()
+        Functions.load_transactions(self.ui.transactionsTable, category_sort, sort_order)
     
     def setup_profile_tab(self):
         accountNameDisplay = self.ui.accountName
@@ -134,7 +143,9 @@ class FinanceTrackerApp:
         submitted = transactionDialog.ui.exec()
 
         if submitted == QDialog.Accepted:
-            Functions.load_transactions(self.ui.transactionsTable)
+            category_sort = self.ui.sortByCategoryDropdown.currentText()
+            sort_order = self.ui.sortingOrderDropdown.currentText()
+            Functions.load_transactions(self.ui.transactionsTable, category_sort, sort_order)
             self.setup_tabs()
     
     def open_update_dialog(self):
@@ -149,7 +160,9 @@ class FinanceTrackerApp:
         submitted = updateDialog.ui.exec()
 
         if submitted == QDialog.Accepted:
-            Functions.load_transactions(self.ui.transactionsTable)
+            category_sort = self.ui.sortByCategoryDropdown.currentText()
+            sort_order = self.ui.sortingOrderDropdown.currentText()
+            Functions.load_transactions(self.ui.transactionsTable, category_sort, sort_order)
             self.setup_tabs()
 
     def handle_delete(self):
@@ -174,7 +187,9 @@ class FinanceTrackerApp:
             database.delete_transaction(delete_id)
             QMessageBox.information(None, "Success", "Transaction deleted successfully!")
 
-            Functions.load_transactions(self.ui.transactionsTable)
+            category_sort = self.ui.sortByCategoryDropdown.currentText()
+            sort_order = self.ui.sortingOrderDropdown.currentText()
+            Functions.load_transactions(self.ui.transactionsTable, category_sort, sort_order)
 
             self.setup_tabs()
         else:

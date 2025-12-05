@@ -80,9 +80,10 @@ def get_transaction_by_id(id):
         finally:
             conn.close()
 
-def get_all_transactions():
+def get_all_transactions(category, order):
     transactions = []
-    query = "SELECT * FROM transactions ORDER BY date DESC"
+    sorting_order = "DESC" if order == "Descending" else "ASC"
+    query = f"SELECT * FROM transactions ORDER BY {category.lower()} {sorting_order}"
 
     conn = create_connection()
     if conn:
