@@ -137,10 +137,20 @@ background-color: rgb(35, 46, 60);
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
-border-radius: 10px;
-background-color: rgb(45, 117, 251);
-color: white;
+background-color: #3b82f6;
+color: #ffffff;
+border: none;
+border-radius: 8px;
 padding: 5px 10px;
+font-weight: 600;
+}
+
+QPushButton:hover {
+background-color: #2563eb;
+}
+
+QPushButton:pressed {
+background-color: #1d4ed8;
 }</string>
       </property>
       <property name="text">
@@ -199,9 +209,24 @@ padding: 5px 10px;
        <rect>
         <x>30</x>
         <y>10</y>
-        <width>131</width>
+        <width>141</width>
         <height>26</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+background-color: #1e3a8a;
+color: #93c5fd;
+border: 1px solid #3b82f6;
+border-radius: 8px;
+padding: 5px 10px;
+}
+
+QPushButton:hover {
+background-color: #1e40af;
+color: #ffffff;
+border-color: #60a5fa;
+}</string>
       </property>
       <property name="text">
        <string>Update Selected</string>
@@ -212,9 +237,24 @@ padding: 5px 10px;
        <rect>
         <x>180</x>
         <y>10</y>
-        <width>131</width>
+        <width>141</width>
         <height>26</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+background-color: #7f1d1d;
+color: #fca5a5;
+border: 1px solid #dc2626;
+border-radius: 8px;
+padding: 5px 10px;
+}
+
+QPushButton:hover {
+background-color: #991b1b;
+color: #ffffff;
+border-color: #ef4444;
+}</string>
       </property>
       <property name="text">
        <string>Delete Selected</string>
@@ -402,7 +442,7 @@ border-radius: 10px;
      <widget class="QLabel" name="sortLabel">
       <property name="geometry">
        <rect>
-        <x>480</x>
+        <x>470</x>
         <y>10</y>
         <width>71</width>
         <height>21</height>
@@ -415,11 +455,14 @@ border-radius: 10px;
      <widget class="QComboBox" name="sortByCategoryDropdown">
       <property name="geometry">
        <rect>
-        <x>555</x>
+        <x>545</x>
         <y>10</y>
-        <width>91</width>
+        <width>101</width>
         <height>26</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
       </property>
       <item>
        <property name="text">
@@ -450,11 +493,14 @@ border-radius: 10px;
      <widget class="QComboBox" name="sortingOrderDropdown">
       <property name="geometry">
        <rect>
-        <x>665</x>
+        <x>655</x>
         <y>10</y>
-        <width>111</width>
+        <width>121</width>
         <height>26</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
       </property>
       <item>
        <property name="text">
@@ -641,6 +687,24 @@ border-radius: 10px;
            <width>121</width>
            <height>26</height>
           </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+background-color: #3b82f6;
+color: #ffffff;
+border: none;
+border-radius: 8px;
+padding: 5px 10px;
+font-weight: 600;
+}
+
+QPushButton:hover {
+background-color: #2563eb;
+}
+
+QPushButton:pressed {
+background-color: #1d4ed8;
+}</string>
          </property>
          <property name="text">
           <string>Save Changes</string>
