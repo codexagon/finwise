@@ -80,7 +80,23 @@ def get_transaction_by_id(id):
         finally:
             conn.close()
 
-def get_all_transactions(category, order):
+def get_all_transactions():
+    transactions = []
+
+    conn = create_connection()
+    if conn:
+        try:
+            cursor = conn.cursor()
+            cursor.execute("SELECT *  FROM transactions")
+            transactions = cursor.fetchall()
+        except Error as e:
+            print(f"Error getting all transactions: {e}")
+        finally:
+            conn.close()
+    
+    return transactions
+
+def get_transactions(category, order):
     transactions = []
     sorting_order = "DESC" if order == "Descending" else "ASC"
     query = f"SELECT * FROM transactions ORDER BY {category.lower()} {sorting_order}"
@@ -92,7 +108,7 @@ def get_all_transactions(category, order):
             cursor.execute(query)
             transactions = cursor.fetchall()
         except Error as e:
-            print(f"Error getting all transactions: {e}")
+            print(f"Error getting transactions: {e}")
         finally:
             conn.close()
     
