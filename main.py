@@ -1,7 +1,7 @@
 import os, sys
 
 from PySide6 import QtCore, QtUiTools
-from PySide6.QtWidgets import (QApplication, QHeaderView, QAbstractItemView, QDialog, QMessageBox, QSizePolicy)
+from PySide6.QtWidgets import (QApplication, QHeaderView, QAbstractItemView, QDialog, QMessageBox, QSizePolicy, QVBoxLayout)
 
 import database, account, preferences
 
@@ -10,6 +10,7 @@ from utils.functions import Functions
 
 from log_transaction import LogTransactionDialog
 from update_transaction import UpdateTransactionDialog
+from statistics_widget import StatisticsWidget
 
 class FinanceTrackerApp:
     DATA_DIR = os.path.join(os.path.expanduser("~"), "finwise-data")
@@ -46,6 +47,8 @@ class FinanceTrackerApp:
         Functions.load_transactions(self.ui.transactionsTable, category_sort, sort_order)
 
         self.setup_tabs()
+        self.setup_statistics_tab()
+        self.refresh_statistics_tab()
     
     def setup_connections(self):
         # Connections in Home tab
@@ -57,6 +60,9 @@ class FinanceTrackerApp:
 
         self.ui.sortByCategoryDropdown.currentTextChanged.connect(self.setup_transactions_tab)
         self.ui.sortingOrderDropdown.currentTextChanged.connect(self.setup_transactions_tab)
+
+        # Connections in Statistics tab
+        self.ui.chartSelectDropdown.currentTextChanged.connect(self.refresh_statistics_tab)
 
         # Connections in Profile tab
         self.ui.saveSettingsButton.clicked.connect(self.save_settings)
@@ -100,6 +106,23 @@ class FinanceTrackerApp:
         category_sort = self.ui.sortByCategoryDropdown.currentText()
         sort_order = self.ui.sortingOrderDropdown.currentText()
         Functions.load_transactions(self.ui.transactionsTable, category_sort, sort_order)
+    
+    def setup_statistics_tab(self):
+        self.stats_widget = StatisticsWidget()
+
+        layout = self.ui.statisticsTab.layout()
+        layout.addWidget(self.stats_widget)
+
+    def refresh_statistics_tab(self):
+        chart_type = self.ui.chartSelectDropdown.currentText()
+        if chart_type == "Spending by Category":
+            self.stats_widget.plot_spending_by_category()
+        elif chart_type == "Income by Category":
+            self.stats_widget.plot_income_by_category()
+        elif chart_type == "Income vs Expense":
+            self.stats_widget.plot_income_vs_expenses()
+        elif chart_type == "Monthly Trend":
+            self.stats_widget.plot_monthly_trend()
     
     def setup_profile_tab(self):
         accountNameDisplay = self.ui.accountName
@@ -147,6 +170,7 @@ class FinanceTrackerApp:
             sort_order = self.ui.sortingOrderDropdown.currentText()
             Functions.load_transactions(self.ui.transactionsTable, category_sort, sort_order)
             self.setup_tabs()
+            self.refresh_statistics_tab()
     
     def open_update_dialog(self):
         transaction_details = Functions.get_transaction_details(self.ui.transactionsTable)
@@ -164,6 +188,7 @@ class FinanceTrackerApp:
             sort_order = self.ui.sortingOrderDropdown.currentText()
             Functions.load_transactions(self.ui.transactionsTable, category_sort, sort_order)
             self.setup_tabs()
+            self.refresh_statistics_tab()
 
     def handle_delete(self):
         transaction_details = Functions.get_transaction_details(self.ui.transactionsTable)
@@ -192,6 +217,7 @@ class FinanceTrackerApp:
             Functions.load_transactions(self.ui.transactionsTable, category_sort, sort_order)
 
             self.setup_tabs()
+            self.refresh_statistics_tab()
         else:
             QMessageBox.information(None, "Cancelled", "Transaction deletion cancelled.")
 

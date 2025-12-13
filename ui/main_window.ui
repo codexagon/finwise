@@ -521,6 +521,35 @@ border-radius: 10px;
      <attribute name="title">
       <string>Statistics</string>
      </attribute>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QComboBox" name="chartSelectDropdown">
+        <item>
+         <property name="text">
+          <string>Spending by Category</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Income by Category</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Income vs Expense</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Monthly Trend</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item>
+       <widget class="QWidget" name="chartContainer" native="true"/>
+      </item>
+     </layout>
     </widget>
     <widget class="QWidget" name="profileTab">
      <property name="cursor">
