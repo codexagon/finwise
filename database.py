@@ -71,7 +71,7 @@ def get_all_transactions():
     if conn:
         try:
             cursor = conn.cursor()
-            cursor.execute("SELECT *  FROM transactions")
+            cursor.execute("SELECT *  FROM transactions ORDER BY date DESC, id DESC")
             transactions = cursor.fetchall()
         except Error as e:
             print(f"Error getting all transactions: {e}")
@@ -86,7 +86,7 @@ def get_monthly_transactions():
     today = datetime.now()
     first_day = today.replace(day=1).strftime("%Y-%m-%d")
 
-    query = "SELECT * FROM transactions WHERE date >= ? ORDER BY date DESC"
+    query = "SELECT * FROM transactions WHERE date >= ? ORDER BY date DESC, id DESC"
 
     conn = create_connection()
     if conn:
@@ -104,7 +104,7 @@ def get_monthly_transactions():
 def get_transactions(category, order):
     transactions = []
     sorting_order = "DESC" if order == "Descending" else "ASC"
-    query = f"SELECT * FROM transactions ORDER BY {category.lower()} {sorting_order}"
+    query = f"SELECT * FROM transactions ORDER BY {category.lower()} {sorting_order}, id {sorting_order}"
 
     conn = create_connection()
     if conn:
