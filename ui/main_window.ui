@@ -112,7 +112,7 @@ background-color: rgb(35, 46, 60);
        <rect>
         <x>20</x>
         <y>20</y>
-        <width>611</width>
+        <width>761</width>
         <height>51</height>
        </rect>
       </property>
@@ -120,7 +120,7 @@ background-color: rgb(35, 46, 60);
        <cursorShape>ArrowCursor</cursorShape>
       </property>
       <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:28pt; font-weight:600; color:#ffffff;&quot;&gt;FinWise - Financial Tracker&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:28pt; font-weight:600; color:#ffffff;&quot;&gt;Welcome Back, User&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="QPushButton" name="logTransactionButton">
@@ -179,6 +179,9 @@ background-color: #1d4ed8;
         <height>51</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
       <property name="text">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; font-weight:700;&quot;&gt;TextLabel&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
@@ -207,7 +210,7 @@ background-color: #1d4ed8;
      <widget class="QPushButton" name="updateTransactionButton">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>90</x>
         <y>10</y>
         <width>141</width>
         <height>26</height>
@@ -235,7 +238,7 @@ border-color: #60a5fa;
      <widget class="QPushButton" name="deleteTransactionButton">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>240</x>
         <y>10</y>
         <width>141</width>
         <height>26</height>
@@ -512,6 +515,36 @@ border-radius: 10px;
         <string>Ascending</string>
        </property>
       </item>
+     </widget>
+     <widget class="QPushButton" name="addTransactionButton">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>10</y>
+        <width>51</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+background-color: #3b82f6;
+color: #ffffff;
+border: none;
+border-radius: 8px;
+padding: 5px 10px;
+}
+
+QPushButton:hover {
+background-color: #2563eb;
+}
+
+QPushButton:pressed {
+background-color: #1d4ed8;
+}</string>
+      </property>
+      <property name="text">
+       <string>Add</string>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="statisticsTab">

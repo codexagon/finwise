@@ -55,6 +55,7 @@ class FinanceTrackerApp:
         self.ui.logTransactionButton.clicked.connect(self.open_transaction_dialog)
 
         # Connections in Transactions tab
+        self.ui.addTransactionButton.clicked.connect(self.open_transaction_dialog)
         self.ui.updateTransactionButton.clicked.connect(self.open_update_dialog)
         self.ui.deleteTransactionButton.clicked.connect(self.handle_delete)
 
@@ -74,9 +75,16 @@ class FinanceTrackerApp:
     
     def setup_home_tab(self):
         tabWidget = self.ui.tabWidget
+        titleLabel = self.ui.titleLabel
         accountBalanceMainDisplay = self.ui.accountBalanceMain
 
-        balance = account.get_account_info()["current_balance"]
+        account_info = account.get_account_info()
+
+        account_name = account_info["account_name"]
+        welcomeString = f"<html><head/><body><p><span style=\" font-size:28pt; font-weight:600; color:#ffffff;\">Welcome Back, {account_name}</span></p></body></html>"
+        titleLabel.setText(welcomeString)
+
+        balance = account_info["current_balance"]
 
         accountBalanceString = f"<html><head/><body><p><span style=\" font-size:20pt; font-weight:700;\">₹ {str(balance)}</span></p></body></html>"
         accountBalanceMainDisplay.setText(accountBalanceString)
@@ -157,6 +165,7 @@ class FinanceTrackerApp:
         preferences.update_preferences("categories", new_categories)
         account.update_account("account_name", new_account_name)
         self.setup_profile_tab()
+        self.setup_home_tab()
         QMessageBox.information(None, "Success", "Settings saved successfully.")
     
     def open_transaction_dialog(self):
