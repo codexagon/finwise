@@ -3,6 +3,8 @@ import os
 import sqlite3
 from sqlite3 import Error
 
+from datetime import datetime
+
 DB_FILE = os.path.join(os.path.expanduser("~"), "finwise-data", "transactions.db")
 
 # Database operations
@@ -62,24 +64,6 @@ def add_transaction(date, amount, name, description, type, category):
             print(f"Added transaction.")
             conn.close()
 
-def get_transaction_by_id(id):
-    query = """
-    SELECT * FROM transactions
-    WHERE id = ?;
-    """
-
-    conn = create_connection()
-    if conn:
-        try:
-            cursor = conn.cursor()
-            cursor.execute(query, (id,))
-            return cursor.fetchone()
-        except Error as e:
-            print(f"Error reading transaction ID {id}: {e}")
-            return None
-        finally:
-            conn.close()
-
 def get_all_transactions():
     transactions = []
 
@@ -91,6 +75,27 @@ def get_all_transactions():
             transactions = cursor.fetchall()
         except Error as e:
             print(f"Error getting all transactions: {e}")
+        finally:
+            conn.close()
+    
+    return transactions
+
+def get_monthly_transactions():
+    transactions = []
+
+    today = datetime.now()
+    first_day = today.replace(day=1).strftime("%Y-%m-%d")
+
+    query = "SELECT * FROM transactions WHERE date >= ? ORDER BY date DESC"
+
+    conn = create_connection()
+    if conn:
+        try:
+            cursor = conn.cursor()
+            cursor.execute(query, (first_day,))
+            transactions = cursor.fetchall()
+        except Error as e:
+            print(f"Error getting monthly transactions: {e}")
         finally:
             conn.close()
     
