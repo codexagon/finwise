@@ -1,7 +1,8 @@
 import os, sys
 
 from PySide6 import QtCore, QtUiTools
-from PySide6.QtWidgets import (QApplication, QHeaderView, QAbstractItemView, QDialog, QMessageBox, QSizePolicy, QVBoxLayout)
+from PySide6.QtWidgets import (QApplication, QHeaderView, QAbstractItemView, QDialog, QMessageBox, QSizePolicy, QListWidgetItem)
+from PySide6.QtGui import QColor
 
 import database, account, preferences
 
@@ -89,8 +90,66 @@ class FinanceTrackerApp:
         accountBalanceString = f"<html><head/><body><p><span style=\" font-size:20pt; font-weight:700;\">₹ {str(balance)}</span></p></body></html>"
         accountBalanceMainDisplay.setText(accountBalanceString)
 
+        transactions = database.get_all_transactions()
+        
+        self.display_month_summary()
+        self.display_recent_transactions(transactions)
+
         tabWidget.tabBar().setCursor(QtCore.Qt.CursorShape.PointingHandCursor)
     
+    def display_month_summary(self):
+        monthIncomeLabel = self.ui.monthIncomeLabel
+        monthExpenseLabel = self.ui.monthExpenseLabel
+        monthNetLabel = self.ui.monthNetLabel
+
+        monthly_income = 0
+        monthly_expenses = 0
+
+        transactions = database.get_monthly_transactions()
+
+        for t in transactions:
+            amount = t[3]
+            trans_type = t[4]
+
+            if trans_type == "Income":
+                monthly_income += amount
+            else:
+                monthly_expenses += amount
+        
+        monthIncomeLabel.setText(f"Income: ₹{monthly_income}")
+        monthExpenseLabel.setText(f"Expenses: ₹{monthly_expenses}")
+        monthNetLabel.setText(f"Net: ₹{monthly_income - monthly_expenses}")
+    
+    def display_recent_transactions(self, transactions):
+        recentTransactionsList = self.ui.recentTransactionsList
+        recentTransactionsList.clear()
+
+        recent = transactions[:10]
+        if recent:
+            for tr in recent:
+                date = tr[1]
+                name = tr[2]
+                amount = tr[3]
+                type = tr[4]
+
+                if type == "Income":
+                    sign = "+"
+                    color = "#10b981"
+                else:
+                    sign = "-"
+                    color = "#ef4444"
+                
+                transaction_text = f"{name}  •  {sign} ₹{amount}  •  {date}"
+                
+                recent_transaction = QListWidgetItem(transaction_text)
+
+                recent_transaction.setForeground(QColor(color))
+                recentTransactionsList.addItem(recent_transaction)
+        else:
+            item = QListWidgetItem("No recent transactions.")
+            item.setForeground(QColor("#64748b"))
+            recentTransactionsList.addItem(item)
+
     def setup_transactions_tab(self):
         table = self.ui.transactionsTable
 
@@ -103,10 +162,10 @@ class FinanceTrackerApp:
         header.setSectionResizeMode(QHeaderView.ResizeMode.Fixed)
         header.setSectionResizeMode(6, QHeaderView.ResizeMode.Stretch)
 
-        table.setColumnWidth(1, 85)
+        table.setColumnWidth(1, 100)
         table.setColumnWidth(2, 150)
         table.setColumnWidth(3, 80)
-        table.setColumnWidth(4, 65)
+        table.setColumnWidth(4, 80)
         table.setColumnWidth(5, 120)
 
         table.setColumnHidden(0, True)

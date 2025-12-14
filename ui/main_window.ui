@@ -107,36 +107,113 @@ background-color: rgb(35, 46, 60);
      <attribute name="title">
       <string>Home</string>
      </attribute>
-     <widget class="QLabel" name="titleLabel">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>20</y>
-        <width>761</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="cursor">
-       <cursorShape>ArrowCursor</cursorShape>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:28pt; font-weight:600; color:#ffffff;&quot;&gt;Welcome Back, User&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="logTransactionButton">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>130</y>
-        <width>141</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="1" column="1" rowspan="2">
+       <widget class="QGroupBox" name="recentTransactionsBox">
+        <property name="styleSheet">
+         <string notr="true">QGroupBox {
+	border: 1px solid #2a2d3a;
+	background-color: rgb(33, 44, 58);
+    border-radius: 10px;
+    padding: 20px;
+	margin: 3px;
+}
+
+QGroupBox &gt; * {
+	background-color: rgb(33, 44, 58);
+}</string>
+        </property>
+        <property name="title">
+         <string/>
+        </property>
+        <widget class="QListWidget" name="recentTransactionsList">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>50</y>
+           <width>351</width>
+           <height>271</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QListWidget {
+font-size: 14px;
+border: none;
+}
+
+QListWidget::item {
+padding: 5px;
+border-radius: 5px;
+}
+
+QListWidget::item:hover {
+background-color: #242938;
+}</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="recentTransactionsLabel">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>20</y>
+           <width>201</width>
+           <height>18</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Recent transactions:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </widget>
+      </item>
+      <item row="0" column="0" colspan="2">
+       <widget class="QGroupBox" name="greetingBox">
+        <property name="styleSheet">
+         <string notr="true">QGroupBox {
+	border: 1px solid #2a2d3a;
+	background-color: rgb(33, 44, 58);
+    border-radius: 10px;
+    padding: 20px;
+	margin: 3px;
+}
+
+QGroupBox &gt; QLabel {
+	background-color: rgb(33, 44, 58);
+}</string>
+        </property>
+        <property name="title">
+         <string/>
+        </property>
+        <widget class="QLabel" name="titleLabel">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>20</y>
+           <width>721</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="cursor">
+          <cursorShape>ArrowCursor</cursorShape>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:24pt; font-weight:600; color:#ffffff;&quot;&gt;Welcome Back, User&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="logTransactionButton">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>120</y>
+           <width>141</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
 background-color: #3b82f6;
 color: #ffffff;
 border: none;
@@ -152,53 +229,174 @@ background-color: #2563eb;
 QPushButton:pressed {
 background-color: #1d4ed8;
 }</string>
-      </property>
-      <property name="text">
-       <string>Log Transaction</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="subtextLabel">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>80</y>
-        <width>311</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#bebebe;&quot;&gt;What would you like to do today?&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="accountBalanceMain">
-      <property name="geometry">
-       <rect>
-        <x>30</x>
-        <y>300</y>
-        <width>151</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; font-weight:700;&quot;&gt;TextLabel&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="accountBalanceMainLabel">
-      <property name="geometry">
-       <rect>
-        <x>30</x>
-        <y>280</y>
-        <width>201</width>
-        <height>18</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Your account balance is:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
+         </property>
+         <property name="text">
+          <string>Log Transaction</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="subtextLabel">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>80</y>
+           <width>311</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; color:#bebebe;&quot;&gt;What would you like to do today?&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QGroupBox" name="accountBalBox">
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>150</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QGroupBox {
+	border: 1px solid #2a2d3a;
+	background-color: rgb(33, 44, 58);
+    border-radius: 10px;
+    padding: 20px;
+	margin: 3px;
+}
+
+QGroupBox &gt; QLabel {
+	background-color: rgb(33, 44, 58);
+}</string>
+        </property>
+        <property name="title">
+         <string/>
+        </property>
+        <widget class="QLabel" name="accountBalanceMain">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>70</y>
+           <width>191</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; font-weight:700;&quot;&gt;TextLabel&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="accountBalanceMainLabel">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>30</y>
+           <width>201</width>
+           <height>18</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Your account balance is:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QGroupBox" name="transactionSummaryBox">
+        <property name="styleSheet">
+         <string notr="true">QGroupBox {
+	border: 1px solid #2a2d3a;
+	background-color: rgb(33, 44, 58);
+    border-radius: 10px;
+    padding: 20px;
+	margin: 3px;
+}
+
+QGroupBox &gt; QLabel {
+	background-color: rgb(33, 44, 58);
+}</string>
+        </property>
+        <property name="title">
+         <string/>
+        </property>
+        <widget class="QLabel" name="monthSummaryLabel">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>20</y>
+           <width>201</width>
+           <height>18</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This month,&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="monthIncomeLabel">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>50</y>
+           <width>251</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel {
+font-size: 16px;
+padding: 5px;
+color: #10b981;
+}</string>
+         </property>
+         <property name="text">
+          <string>Income: </string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="monthExpenseLabel">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>90</y>
+           <width>251</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel {
+font-size: 16px;
+padding: 5px;
+color: #ef4444;
+}</string>
+         </property>
+         <property name="text">
+          <string>Expenses:</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="monthNetLabel">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>130</y>
+           <width>251</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel {
+font-size: 16px;
+padding: 5px;
+}</string>
+         </property>
+         <property name="text">
+          <string>Net:</string>
+         </property>
+        </widget>
+       </widget>
+      </item>
+     </layout>
     </widget>
     <widget class="QWidget" name="transactionsTab">
      <property name="cursor">
@@ -283,6 +481,29 @@ border-color: #ef4444;
 background-color: rgb(33, 44, 58);
 color: white;
 border-radius: 10px;
+border: 1px solid #2a2d3a;
+padding: 10px;
+gridline-color: #2a2d3a;
+}
+
+QTableWidget::item {
+padding: 10px;
+border-bottom: 1px solid #2a2d3a;
+}
+
+QTableWidget::item:selected {
+background-color: #3b82f6;
+color: white;
+}
+
+QHeaderView::section {
+background-color: #131b26;
+color: white;
+padding: 6px;
+border: none;
+border-radius: 10px;
+font-weight: bold;
+font-size: 12px;
 }</string>
       </property>
       <property name="supportedDragActions">
@@ -594,16 +815,39 @@ background-color: #1d4ed8;
      <layout class="QGridLayout" name="gridLayout">
       <item row="0" column="1">
        <widget class="QGroupBox" name="xpInformation">
+        <property name="styleSheet">
+         <string notr="true">QGroupBox {
+    background-color: rgb(33, 44, 58);
+    border: 1px solid #2a2d3a;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 15px;
+	font-weight: bold;
+	margin: 3px;
+    color: white;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    left: 10px;
+    padding: 15px 5px;
+}
+
+QGroupBox &gt; * {
+background-color: rgb(33, 44, 58);
+margin: 3px;
+}</string>
+        </property>
         <property name="title">
          <string>Level Information</string>
         </property>
         <widget class="QLabel" name="accountXpLabel">
          <property name="geometry">
           <rect>
-           <x>10</x>
-           <y>30</y>
-           <width>91</width>
-           <height>22</height>
+           <x>30</x>
+           <y>50</y>
+           <width>111</width>
+           <height>31</height>
           </rect>
          </property>
          <property name="text">
@@ -613,10 +857,10 @@ background-color: #1d4ed8;
         <widget class="QLabel" name="accountXp">
          <property name="geometry">
           <rect>
-           <x>120</x>
-           <y>30</y>
-           <width>71</width>
-           <height>21</height>
+           <x>160</x>
+           <y>50</y>
+           <width>91</width>
+           <height>31</height>
           </rect>
          </property>
          <property name="text">
@@ -627,16 +871,39 @@ background-color: #1d4ed8;
       </item>
       <item row="0" column="0">
        <widget class="QGroupBox" name="basicInformation">
+        <property name="styleSheet">
+         <string notr="true">QGroupBox {
+    background-color: rgb(33, 44, 58);
+    border: 1px solid #2a2d3a;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 15px;
+	font-weight: bold;
+	margin: 3px;
+    color: white;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    left: 10px;
+    padding: 15px 5px;
+}
+
+QGroupBox &gt; * {
+background-color: rgb(33, 44, 58);
+margin: 3px;
+}</string>
+        </property>
         <property name="title">
          <string>Basic Information</string>
         </property>
         <widget class="QLabel" name="accountNameLabel">
          <property name="geometry">
           <rect>
-           <x>10</x>
-           <y>30</y>
-           <width>71</width>
-           <height>22</height>
+           <x>20</x>
+           <y>50</y>
+           <width>131</width>
+           <height>31</height>
           </rect>
          </property>
          <property name="text">
@@ -646,10 +913,10 @@ background-color: #1d4ed8;
         <widget class="QLabel" name="accountName">
          <property name="geometry">
           <rect>
-           <x>150</x>
-           <y>30</y>
+           <x>160</x>
+           <y>50</y>
            <width>201</width>
-           <height>21</height>
+           <height>31</height>
           </rect>
          </property>
          <property name="text">
@@ -659,10 +926,10 @@ background-color: #1d4ed8;
         <widget class="QLabel" name="accountBalanceLabel">
          <property name="geometry">
           <rect>
-           <x>10</x>
-           <y>60</y>
-           <width>68</width>
-           <height>22</height>
+           <x>20</x>
+           <y>90</y>
+           <width>131</width>
+           <height>31</height>
           </rect>
          </property>
          <property name="text">
@@ -672,10 +939,10 @@ background-color: #1d4ed8;
         <widget class="QLabel" name="accountBalance">
          <property name="geometry">
           <rect>
-           <x>150</x>
-           <y>60</y>
+           <x>160</x>
+           <y>90</y>
            <width>131</width>
-           <height>21</height>
+           <height>31</height>
           </rect>
          </property>
          <property name="text">
@@ -685,10 +952,10 @@ background-color: #1d4ed8;
         <widget class="QLabel" name="accountTransactionsLabel">
          <property name="geometry">
           <rect>
-           <x>10</x>
-           <y>90</y>
-           <width>121</width>
-           <height>21</height>
+           <x>20</x>
+           <y>130</y>
+           <width>131</width>
+           <height>31</height>
           </rect>
          </property>
          <property name="text">
@@ -698,10 +965,10 @@ background-color: #1d4ed8;
         <widget class="QLabel" name="accountTransactions">
          <property name="geometry">
           <rect>
-           <x>150</x>
-           <y>90</y>
+           <x>160</x>
+           <y>130</y>
            <width>91</width>
-           <height>21</height>
+           <height>31</height>
           </rect>
          </property>
          <property name="text">
@@ -712,16 +979,39 @@ background-color: #1d4ed8;
       </item>
       <item row="1" column="0" colspan="2">
        <widget class="QGroupBox" name="settings">
+        <property name="styleSheet">
+         <string notr="true">QGroupBox {
+    background-color: rgb(33, 44, 58);
+    border: 1px solid #2a2d3a;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 15px;
+	font-weight: bold;
+	margin: 3px;
+    color: white;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    left: 10px;
+    padding: 15px 5px;
+}
+
+QGroupBox &gt; QLabel, QGroupBox &gt; QLineEdit {
+background-color: rgb(33, 44, 58);
+margin: 3px;
+}</string>
+        </property>
         <property name="title">
          <string>Preferences</string>
         </property>
         <widget class="QLabel" name="categoriesInputLabel">
          <property name="geometry">
           <rect>
-           <x>10</x>
-           <y>40</y>
-           <width>101</width>
-           <height>21</height>
+           <x>20</x>
+           <y>50</y>
+           <width>141</width>
+           <height>31</height>
           </rect>
          </property>
          <property name="text">
@@ -731,10 +1021,10 @@ background-color: #1d4ed8;
         <widget class="QLineEdit" name="categoriesInput">
          <property name="geometry">
           <rect>
-           <x>150</x>
-           <y>40</y>
+           <x>160</x>
+           <y>50</y>
            <width>601</width>
-           <height>25</height>
+           <height>31</height>
           </rect>
          </property>
          <property name="placeholderText">
@@ -745,9 +1035,9 @@ background-color: #1d4ed8;
          <property name="geometry">
           <rect>
            <x>640</x>
-           <y>220</y>
+           <y>215</y>
            <width>121</width>
-           <height>26</height>
+           <height>31</height>
           </rect>
          </property>
          <property name="styleSheet">
@@ -775,10 +1065,10 @@ background-color: #1d4ed8;
         <widget class="QLabel" name="accountNameInputLabel">
          <property name="geometry">
           <rect>
-           <x>10</x>
-           <y>80</y>
-           <width>121</width>
-           <height>21</height>
+           <x>20</x>
+           <y>90</y>
+           <width>141</width>
+           <height>31</height>
           </rect>
          </property>
          <property name="text">
@@ -788,10 +1078,10 @@ background-color: #1d4ed8;
         <widget class="QLineEdit" name="accountNameInput">
          <property name="geometry">
           <rect>
-           <x>150</x>
-           <y>80</y>
+           <x>160</x>
+           <y>90</y>
            <width>201</width>
-           <height>25</height>
+           <height>31</height>
           </rect>
          </property>
          <property name="placeholderText">
