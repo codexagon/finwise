@@ -47,11 +47,35 @@ class LogTransactionDialog:
         elif not amount:
             QMessageBox.critical(None,"Error", "Amount cannot be 0!")
         else:
+            current_info = account.get_account_info()
+            old_xp = current_info["xp"]
+            old_level = xp.calculate_level(old_xp)
+
             database.add_transaction(date, amount, name, description, type, category)
             account.update_account("transaction_count", 1)
             account.update_account("current_balance", amount if type == "Income" else -amount)
 
             xp_earned = xp.calculate_transaction_xp(amount, type, self.transaction_count + 1)
             account.update_account("xp", xp_earned)
+
+            new_xp = old_xp + xp_earned
+            new_level = xp.calculate_level(new_xp)
+
             self.ui.accept()
-            QMessageBox.information(None, "Success", "Transaction added successfully!")
+
+            if new_level > old_level:
+                QMessageBox.information(
+                    None,
+                    "Level Up",
+                    f"Congratulations! You've reached level {new_level}!\n"
+                    f"XP earned: +{xp_earned}"
+                )
+            else:
+                progress = xp.xp_progress_in_level(new_xp)
+                QMessageBox.information(
+                    None,
+                    "Success",
+                    "Transaction added successfully!\n"
+                    f"XP earned: {xp_earned}\n"
+                    f"Progress: {progress['xp_in_level']}/{progress['xp_gap']} XP to Level {new_level + 1}"
+                )

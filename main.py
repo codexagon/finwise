@@ -196,13 +196,25 @@ class FinanceTrackerApp:
         accountBalanceDisplay = self.ui.accountBalance
         accountTransactionsDisplay = self.ui.accountTransactions
         accountXpDisplay = self.ui.accountXp
+        accountLevelDisplay = self.ui.accountLevel
+        accountLevelProgressBar = self.ui.levelProgressBar
 
         information = account.get_account_info()
 
-        accountNameDisplay.setText(information["account_name"])
+        accountNameDisplay.setText(str(information["account_name"]))
         accountBalanceDisplay.setText("₹" + str(information["current_balance"]))
         accountTransactionsDisplay.setText(str(information["transaction_count"]))
-        accountXpDisplay.setText(str(information["xp"]))
+
+        current_xp = information["xp"]
+        progress = xp.xp_progress_in_level(current_xp)
+
+        accountXpDisplay.setText(f"<html><head/><body><p><span style=\"font-size:12pt;\">{progress["xp_in_level"]}/{progress["xp_gap"]} XP</span></p></body></html>")
+        accountLevelDisplay.setText(f"<html><head/><body><p><span style=\"font-size:12pt;\">Level {progress["level"]}</span></p></body></html>")
+
+        accountLevelProgressBar.setValue(progress["progress"])
+        accountLevelProgressBar.setFormat(
+            f"{progress['xp_gap'] - progress['xp_in_level']} XP to Level {progress['level'] + 1}"
+        )
 
         self.handle_settings()
 
