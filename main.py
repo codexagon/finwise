@@ -12,6 +12,7 @@ from utils.functions import Functions
 from log_transaction import LogTransactionDialog
 from update_transaction import UpdateTransactionDialog
 from statistics_widget import StatisticsWidget
+from ai_advisor import AIAdvisorWindow
 
 class FinanceTrackerApp:
     DATA_DIR = os.path.join(os.path.expanduser("~"), "finwise-data")
@@ -54,6 +55,7 @@ class FinanceTrackerApp:
     def setup_connections(self):
         # Connections in Home tab
         self.ui.logTransactionButton.clicked.connect(self.open_transaction_dialog)
+        self.ui.openAiAdvisorButton.clicked.connect(self.open_ai_advisor_window)
 
         # Connections in Transactions tab
         self.ui.addTransactionButton.clicked.connect(self.open_transaction_dialog)
@@ -300,6 +302,10 @@ class FinanceTrackerApp:
             self.refresh_statistics_tab()
         else:
             QMessageBox.information(None, "Cancelled", "Transaction deletion cancelled.")
+
+    def open_ai_advisor_window(self):
+        advisorWindow = AIAdvisorWindow()
+        advisorWindow.ui.exec()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

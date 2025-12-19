@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>670</width>
+    <height>480</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>AI Financial Advisor</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(19, 27, 38)</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>241</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;AI Financial Advisor&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="generalAnalysisButton">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>70</y>
+     <width>151</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+background-color: #1e3a8a;
+color: #93c5fd;
+border: 1px solid #3b82f6;
+border-radius: 8px;
+padding: 5px 10px;
+}
+
+QPushButton:hover {
+background-color: #1e40af;
+color: #ffffff;
+border-color: #60a5fa;
+}</string>
+   </property>
+   <property name="text">
+    <string>General Analysis</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="savingTipsButton">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>70</y>
+     <width>111</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+background-color: #1e3a8a;
+color: #93c5fd;
+border: 1px solid #3b82f6;
+border-radius: 8px;
+padding: 5px 10px;
+}
+
+QPushButton:hover {
+background-color: #1e40af;
+color: #ffffff;
+border-color: #60a5fa;
+}</string>
+   </property>
+   <property name="text">
+    <string>Saving Tips</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="responseArea">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>120</y>
+     <width>631</width>
+     <height>301</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QTextEdit {
+background-color: rgb(33, 44, 58);
+color: white;
+border: 1px solid #2a2d3a;
+border-radius: 10px;
+padding: 10px;
+line-height: 1.5;
+}</string>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="closeButton">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>440</y>
+     <width>92</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+background-color: #1e293b;
+color: #94a3b8;
+border: 1px solid #334155;
+border-radius: 6px;
+font-size: 13px;
+}
+QPushButton:hover {
+background-color: #334155;
+color: white;
+}</string>
+   </property>
+   <property name="text">
+    <string>Close</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

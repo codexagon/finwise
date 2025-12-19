@@ -108,6 +108,61 @@ background-color: rgb(35, 46, 60);
       <string>Home</string>
      </attribute>
      <layout class="QGridLayout" name="gridLayout_2">
+      <item row="1" column="0">
+       <widget class="QGroupBox" name="accountBalBox">
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>150</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QGroupBox {
+	border: 1px solid #2a2d3a;
+	background-color: rgb(33, 44, 58);
+    border-radius: 10px;
+    padding: 20px;
+	margin: 3px;
+}
+
+QGroupBox &gt; QLabel {
+	background-color: rgb(33, 44, 58);
+}</string>
+        </property>
+        <property name="title">
+         <string/>
+        </property>
+        <widget class="QLabel" name="accountBalanceMain">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>70</y>
+           <width>191</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; font-weight:700;&quot;&gt;TextLabel&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="accountBalanceMainLabel">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>30</y>
+           <width>201</width>
+           <height>18</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Your account balance is:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </widget>
+      </item>
       <item row="1" column="1" rowspan="2">
        <widget class="QGroupBox" name="recentTransactionsBox">
         <property name="styleSheet">
@@ -162,144 +217,6 @@ background-color: #242938;
          </property>
          <property name="text">
           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Recent transactions:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-        </widget>
-       </widget>
-      </item>
-      <item row="0" column="0" colspan="2">
-       <widget class="QGroupBox" name="greetingBox">
-        <property name="styleSheet">
-         <string notr="true">QGroupBox {
-	border: 1px solid #2a2d3a;
-	background-color: rgb(33, 44, 58);
-    border-radius: 10px;
-    padding: 20px;
-	margin: 3px;
-}
-
-QGroupBox &gt; QLabel {
-	background-color: rgb(33, 44, 58);
-}</string>
-        </property>
-        <property name="title">
-         <string/>
-        </property>
-        <widget class="QLabel" name="titleLabel">
-         <property name="geometry">
-          <rect>
-           <x>20</x>
-           <y>20</y>
-           <width>721</width>
-           <height>51</height>
-          </rect>
-         </property>
-         <property name="cursor">
-          <cursorShape>ArrowCursor</cursorShape>
-         </property>
-         <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:24pt; font-weight:600; color:#ffffff;&quot;&gt;Welcome Back, User&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-        </widget>
-        <widget class="QPushButton" name="logTransactionButton">
-         <property name="geometry">
-          <rect>
-           <x>20</x>
-           <y>120</y>
-           <width>141</width>
-           <height>31</height>
-          </rect>
-         </property>
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton {
-background-color: #3b82f6;
-color: #ffffff;
-border: none;
-border-radius: 8px;
-padding: 5px 10px;
-font-weight: 600;
-}
-
-QPushButton:hover {
-background-color: #2563eb;
-}
-
-QPushButton:pressed {
-background-color: #1d4ed8;
-}</string>
-         </property>
-         <property name="text">
-          <string>Log Transaction</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="subtextLabel">
-         <property name="geometry">
-          <rect>
-           <x>20</x>
-           <y>80</y>
-           <width>311</width>
-           <height>21</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; color:#bebebe;&quot;&gt;What would you like to do today?&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-        </widget>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QGroupBox" name="accountBalBox">
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>150</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QGroupBox {
-	border: 1px solid #2a2d3a;
-	background-color: rgb(33, 44, 58);
-    border-radius: 10px;
-    padding: 20px;
-	margin: 3px;
-}
-
-QGroupBox &gt; QLabel {
-	background-color: rgb(33, 44, 58);
-}</string>
-        </property>
-        <property name="title">
-         <string/>
-        </property>
-        <widget class="QLabel" name="accountBalanceMain">
-         <property name="geometry">
-          <rect>
-           <x>20</x>
-           <y>70</y>
-           <width>191</width>
-           <height>51</height>
-          </rect>
-         </property>
-         <property name="styleSheet">
-          <string notr="true"/>
-         </property>
-         <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; font-weight:700;&quot;&gt;TextLabel&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="accountBalanceMainLabel">
-         <property name="geometry">
-          <rect>
-           <x>20</x>
-           <y>30</y>
-           <width>201</width>
-           <height>18</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Your account balance is:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </widget>
@@ -392,6 +309,123 @@ padding: 5px;
          </property>
          <property name="text">
           <string>Net:</string>
+         </property>
+        </widget>
+       </widget>
+      </item>
+      <item row="0" column="0" colspan="2">
+       <widget class="QGroupBox" name="greetingBox">
+        <property name="styleSheet">
+         <string notr="true">QGroupBox {
+	border: 1px solid #2a2d3a;
+	background-color: rgb(33, 44, 58);
+    border-radius: 10px;
+    padding: 20px;
+	margin: 3px;
+}
+
+QGroupBox &gt; QLabel {
+	background-color: rgb(33, 44, 58);
+}</string>
+        </property>
+        <property name="title">
+         <string/>
+        </property>
+        <widget class="QLabel" name="titleLabel">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>20</y>
+           <width>721</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="cursor">
+          <cursorShape>ArrowCursor</cursorShape>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:24pt; font-weight:600; color:#ffffff;&quot;&gt;Welcome Back, User&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="logTransactionButton">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>120</y>
+           <width>141</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+background-color: #3b82f6;
+color: #ffffff;
+border: none;
+border-radius: 8px;
+padding: 5px 10px;
+font-weight: 600;
+}
+
+QPushButton:hover {
+background-color: #2563eb;
+}
+
+QPushButton:pressed {
+background-color: #1d4ed8;
+}</string>
+         </property>
+         <property name="text">
+          <string>Log Transaction</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="subtextLabel">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>80</y>
+           <width>311</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; color:#bebebe;&quot;&gt;What would you like to do today?&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="openAiAdvisorButton">
+         <property name="geometry">
+          <rect>
+           <x>180</x>
+           <y>120</y>
+           <width>141</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+background-color: #3b82f6;
+color: #ffffff;
+border: none;
+border-radius: 8px;
+padding: 5px 10px;
+font-weight: 600;
+}
+
+QPushButton:hover {
+background-color: #2563eb;
+}
+
+QPushButton:pressed {
+background-color: #1d4ed8;
+}</string>
+         </property>
+         <property name="text">
+          <string>Open AI Advisor</string>
          </property>
         </widget>
        </widget>
