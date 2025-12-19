@@ -1,6 +1,6 @@
 # finwise
 
-A finance tracking application built in Python using PySide6 and sqlite3.
+A slightly gamified finance tracking application built in Python using PySide6 and sqlite3.
 
 ## Installation
 
@@ -25,8 +25,32 @@ source virtualenv/bin/activate # for Linux & MacOS
 pip install -r requirements.txt
 ```
 
-4. Run:
+### AI Advisor Setup
+
+4. Create a `.env` file in the project root and add the following text:
+
+```bash
+GEMINI_API_KEY=your_key_name
+```
+
+Get your API key from https://aistudio.google.com/app/api-keys
+
+### Run the application
+
+5. Run:
 
 ```bash
 python main.py
 ```
+
+## Features
+
+- Track income & expenses
+- Categorize transactions
+- View summaries of spending patterns
+- Store data locally using SQLite
+- UI made using PySide6
+- Integrated AI Advisor using Gemini:
+  - Generates financial health assessments
+  - Analyzes spending behaviour
+  - Suggests savings tips & actionable items
